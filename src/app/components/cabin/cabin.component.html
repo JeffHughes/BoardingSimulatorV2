@@ -1,0 +1,118 @@
+Cabin:
+
+<div class="full-width-component" style="display: flex; flex-direction: column">
+  <div style="text-align: center">
+    <table style="width: 100%">
+      @for (letter of config.seatsABC(); track $index) {
+      <tr>
+        @for (row of config.rows( ) ; track $index) {
+        <td [ngStyle]="config.seatStyle()">
+          <div
+            style="
+              border: 1px solid black;
+              user-select: none;
+              text-align: center;
+              vertical-align: middle;
+              height: 25px;
+            "
+            [id]="'seat-' + row + letter"
+          >
+            {{ row }}{{ letter }}
+          </div>
+        </td>
+        }
+        <td></td>
+      </tr>
+      }
+    </table>
+  </div>
+
+  <div style="display: flex">
+    @for (spot of config.bins().reverse(); track $index) {
+    <div
+      [id]="'cabin-bin-aft-' + spot"
+      style="
+        flex: 1;
+        display: flex;
+        height: 30px;
+
+        align-items: center;
+        justify-content: center;
+
+        border: 1px solid black;
+        user-select: none;
+      "
+    >
+      {{ spot }}
+    </div>
+    }
+  </div>
+
+  <div style="display: flex">
+    @for (spot of config.bins() ; track $index) {
+    <div
+      [id]="'cabin-' + spot"
+      style="
+        flex: 1;
+        display: flex;
+        height: 80px;
+
+        align-items: center;
+        justify-content: center;
+
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        user-select: none;
+      "
+    >
+      <!-- {{ spot }} -->
+    </div>
+    }
+  </div>
+
+  <div style="display: flex">
+    @for (spot of config.bins().reverse(); track $index) {
+    <div
+      [id]="'cabin-bin-starboard-' + spot"
+      style="
+        flex: 1;
+        display: flex;
+        height: 30px;
+
+        align-items: center;
+        justify-content: center;
+
+        border: 1px solid black;
+        user-select: none;
+      "
+    >
+      {{ spot }}
+    </div>
+    }
+  </div>
+
+  <div style="text-align: center">
+    <table style="width: 100%">
+      @for (letter of config.seatsDEF(); track $index) {
+      <tr>
+        @for (row of config.rows( ) ; track $index) {
+        <td [ngStyle]="config.seatStyle()">
+          <div
+            style="
+              border: 1px solid black;
+              user-select: none;
+              text-align: center;
+              vertical-align: middle;
+              height: 25px;
+            "
+            [id]="'seat-' + row + letter"
+          >
+            {{ row }}{{ letter }}
+          </div>
+        </td>
+        }
+        <td></td>
+      </tr>
+      }
+    </table>
+  </div>
+</div>

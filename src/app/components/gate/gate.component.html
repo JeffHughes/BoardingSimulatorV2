@@ -1,0 +1,27 @@
+<div
+  class="full-width-component"
+  style="display: flex; justify-content: space-between"
+>
+  <div>Gate:</div>
+
+  <div style="display: flex; flex-direction: column">
+    @for (lane of [1,2]; track $index) {
+
+    <div style="flex: 1; display: flex">
+      @for (bin of config.bins().reverse(); track $index) {
+      <div
+        [id]="'bin-' + lane + '-' + bin"
+        style="
+          padding: 30px;
+          aspect-ratio: 1;
+          border: 1px solid black;
+          user-select: none;
+        "
+      >
+        {{ bin }}
+      </div>
+      }
+    </div>
+    }
+  </div>
+</div>

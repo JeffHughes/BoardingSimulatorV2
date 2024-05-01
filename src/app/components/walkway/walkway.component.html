@@ -1,0 +1,21 @@
+Walkway:
+<div class="full-width-component" style="flex: 1; display: flex">
+  @for (spot of config.walkway().reverse(); track $index) {
+  <div
+    [id]="'walkway-' + spot"
+    style="
+      flex: 1;
+      display: flex;
+      height: 80px;
+
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid black;
+      user-select: none;
+    "
+  >
+    &lt; {{ spot }}
+  </div>
+  }
+</div>
