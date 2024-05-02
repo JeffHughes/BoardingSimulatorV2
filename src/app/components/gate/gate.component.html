@@ -1,8 +1,24 @@
+Gate:
+
 <div
   class="full-width-component"
   style="display: flex; justify-content: space-between"
 >
-  <div>Gate:</div>
+  <div
+    style="
+      position: relative;
+      width: 1px;
+
+      flex: 0;
+    "
+  >
+    <div
+      id="gate-start"
+      style="position: absolute; flex: 0; top: 50%; left: -100px; height: 20px"
+    >
+      gate-start
+    </div>
+  </div>
 
   <div style="display: flex; flex-direction: column">
     @for (lane of [1,2]; track $index) {
@@ -10,7 +26,7 @@
     <div style="flex: 1; display: flex">
       @for (bin of config.bins().reverse(); track $index) {
       <div
-        [id]="'bin-' + lane + '-' + bin"
+        [id]="'gate-' + lane + '-' + bin"
         style="
           padding: 30px;
           aspect-ratio: 1;
@@ -23,5 +39,21 @@
       }
     </div>
     }
+  </div>
+
+  <div
+    style="
+      position: relative;
+      width: 1px;
+
+      flex: 0;
+    "
+  >
+    <div
+      id="boarding"
+      style="position: absolute; flex: 0; top: 50%; left: 100px; height: 20px"
+    >
+      board
+    </div>
   </div>
 </div>

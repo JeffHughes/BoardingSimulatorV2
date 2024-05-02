@@ -1,6 +1,22 @@
 Cabin:
 
 <div class="full-width-component" style="display: flex; flex-direction: column">
+
+  <div
+    style="
+      position: relative;
+      width: 1px; 
+      flex: 0;
+    "
+  >
+    <div
+      id="cabin-start"
+      style="position: absolute; flex: 0; top: 50%; left: -100px; height: 20px"
+    >
+  cabin-start
+    </div>
+  </div>
+
   <div style="text-align: center">
     <table style="width: 100%">
       @for (letter of config.seatsABC(); track $index) {
@@ -49,7 +65,7 @@ Cabin:
   </div>
 
   <div style="display: flex">
-    @for (spot of config.bins() ; track $index) {
+    @for (spot of config.bins().reverse() ; track $index) {
     <div
       [id]="'cabin-' + spot"
       style="
@@ -64,7 +80,7 @@ Cabin:
         user-select: none;
       "
     >
-      <!-- {{ spot }} -->
+       {{ spot }}  
     </div>
     }
   </div>

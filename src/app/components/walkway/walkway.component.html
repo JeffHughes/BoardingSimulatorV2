@@ -1,5 +1,22 @@
 Walkway:
 <div class="full-width-component" style="flex: 1; display: flex">
+
+  <div
+    style="
+      position: relative;
+      width: 1px; 
+      flex: 0;
+    "
+  >
+    <div
+      id="walkway-end"
+      style="position: absolute; flex: 0; top: 50%; left: -100px; height: 20px"
+    >
+      walkway end
+    </div>
+  </div>
+
+
   @for (spot of config.walkway().reverse(); track $index) {
   <div
     [id]="'walkway-' + spot"
@@ -18,4 +35,20 @@ Walkway:
     &lt; {{ spot }}
   </div>
   }
+
+  <div
+    style="
+      position: relative;
+      width: 1px;
+ 
+      flex: 0;
+    "
+  >
+    <div
+      id="walkway-start"
+      style="position: absolute; flex: 0; top: 50%; left: 100px; height: 20px"
+    >
+      walkway start
+    </div>
+  </div>
 </div>

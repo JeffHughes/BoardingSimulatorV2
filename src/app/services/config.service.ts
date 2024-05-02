@@ -5,13 +5,14 @@ import { Injectable, signal } from '@angular/core';
 })
 export class ConfigService {
 
-  binCount = signal( 12);
+  binCount = signal(12);
+  slotsPerBin = signal(6);
+  slotsPerParallelBinsCount = signal(this.slotsPerBin() * 2);
   rowCount = signal(24);
   seatCount = signal(6);
-  walkwaySpots = signal(20);
-
-  constructor() { }
-
+  walkwaySpots = signal(12);
+  passengerCount = signal(143);
+  
   bins() {
     return Array.from({ length: this.binCount() }, (v, k) => k + 1);
   }
@@ -34,6 +35,10 @@ export class ConfigService {
 
   walkway() { 
     return Array.from({ length: this.walkwaySpots() }, (v, k) => k + 1);
+  }
+
+  passengers() { 
+    return Array.from({ length: this.passengerCount() }, (v, k) => k + 1);
   }
  
 }
